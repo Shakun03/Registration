@@ -18,31 +18,30 @@
     }
 
 class Registration extends React.Component{
-        constructor(){
-            super();
-            this.state = {
-                step: 1
-            };
-            this.saveValues = this.saveValues.bind(this);
-            this.nextStep = this.nextStep.bind(this);
-            this.previousStep = this.previousStep.bind(this);
+    constructor(){
+        super();
+        this.state = {
+            step: 1
+        };
+        this.saveValues = this.saveValues.bind(this);
+        this.nextStep = this.nextStep.bind(this);
+        this.previousStep = this.previousStep.bind(this);
+    }
+    render(){
+        switch(this.state.step){
+            case 1:
+                return <EmailAddress fieldValues={fieldValues} nextStep={this.nextStep} saveValues={this.saveValues}/>
+            case 2:
+                return <TeamName fieldValues={fieldValues} nextStep={this.nextStep} previousStep={this.previousStep} saveValues={this.saveValues}/>
+            case 3:
+                return <DomainName fieldValues={fieldValues} nextStep={this.nextStep} previousStep={this.previousStep} saveValues={this.saveValues}/>
+            case 4:
+                return <UserName fieldValues={fieldValues} nextStep={this.nextStep} previousStep={this.previousStep} saveValues={this.saveValues}/>
+            case 5:
+                return <Confirmation fieldValues={fieldValues} nextStep={this.nextStep} previousStep={this.previousStep}/>
+            case 6: 
+                return <Welcome previousStep={this.previousStep}/>
         }
-        render(){
-            switch(this.state.step){
-                case 1:
-                    return <EmailAddress fieldValues={fieldValues} nextStep={this.nextStep} saveValues={this.saveValues}/>
-                case 2:
-                    return <TeamName fieldValues={fieldValues} nextStep={this.nextStep} previousStep={this.previousStep} saveValues={this.saveValues}/>
-               case 3:
-                    return <DomainName fieldValues={fieldValues} nextStep={this.nextStep} previousStep={this.previousStep} saveValues={this.saveValues}/>
-                case 4:
-                    return <UserName fieldValues={fieldValues} nextStep={this.nextStep} previousStep={this.previousStep} saveValues={this.saveValues}/>
-                case 5:
-                    return <Confirmation fieldValues={fieldValues} nextStep={this.nextStep} previousStep={this.previousStep}/>
-                case 6: 
-                    return <Welcome previousStep={this.previousStep}/>
-            }
-
     }
     saveValues(fields) {
         return function(){
@@ -57,16 +56,11 @@ class Registration extends React.Component{
     }
     previousStep(e){
         e.preventDefault()
-
-
         this.setState({
             step: this.state.step - 1 
         })
     }
-
-
-    }
- ReactDOM.render(<Registration />,
-            document.getElementById('app'))
+}
+ReactDOM.render(<Registration />,document.getElementById('app'))
 
 export default Registration;

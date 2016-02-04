@@ -158,7 +158,6 @@
 	        key: 'previousStep',
 	        value: function previousStep(e) {
 	            e.preventDefault();
-
 	            this.setState({
 	                step: this.state.step - 1
 	            });
@@ -19809,7 +19808,7 @@
 	        value: function render() {
 	            return _react2.default.createElement(
 	                'div',
-	                { id: 'second' },
+	                null,
 	                _react2.default.createElement(
 	                    'div',
 	                    { className: 'row' },
@@ -19848,7 +19847,7 @@
 	                                { className: 'form-group' },
 	                                _react2.default.createElement(
 	                                    'button',
-	                                    { type: 'button', className: 'btn btn-success', onClick: this.saveAndContinue },
+	                                    { type: 'submit', className: 'btn btn-success', onClick: this.saveAndContinue },
 	                                    'Create a New Team'
 	                                )
 	                            )
@@ -19893,7 +19892,7 @@
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	Object.defineProperty(exports, "__esModule", {
-	  value: true
+	    value: true
 	});
 
 	var _react = __webpack_require__(1);
@@ -19913,96 +19912,94 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var TeamName = function (_React$Component) {
-	  _inherits(TeamName, _React$Component);
+	    _inherits(TeamName, _React$Component);
 
-	  function TeamName() {
-	    _classCallCheck(this, TeamName);
+	    function TeamName() {
+	        _classCallCheck(this, TeamName);
 
-	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(TeamName).call(this));
+	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(TeamName).call(this));
 
-	    _this.saveAndContinue = _this.saveAndContinue.bind(_this);
-	    return _this;
-	  }
+	        _this.saveAndContinue = _this.saveAndContinue.bind(_this);
+	        return _this;
+	    }
 
-	  _createClass(TeamName, [{
-	    key: 'render',
-	    value: function render() {
-
-	      return _react2.default.createElement(
-	        'div',
-	        { className: 'hello' },
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'row' },
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'col-md-6' },
-	            _react2.default.createElement(
-	              'h1',
-	              null,
-	              'What would you want to call your team?'
-	            )
-	          )
-	        ),
-	        _react2.default.createElement(
-	          'form',
-	          { className: 'form-inline' },
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'row' },
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'col-md-6' },
-	              _react2.default.createElement(
+	    _createClass(TeamName, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
 	                'div',
-	                { className: 'form-group' },
+	                null,
 	                _react2.default.createElement(
-	                  'label',
-	                  { className: 'labels' },
-	                  'Your Team Name'
-	                ),
-	                _react2.default.createElement('input', { type: 'text', className: 'form-control', ref: 'team', placeholder: 'Team Name', defaultValue: this.props.fieldValues.teamname, required: true })
-	              )
-	            )
-	          ),
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'row' },
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'col-md-6' },
-	              _react2.default.createElement(
-	                'div',
-	                { className: 'form-group' },
-	                _react2.default.createElement(
-	                  'button',
-	                  { className: 'btn btn-success', onClick: this.props.previousStep },
-	                  'Back'
+	                    'div',
+	                    { className: 'row' },
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'col-md-6' },
+	                        _react2.default.createElement(
+	                            'h1',
+	                            null,
+	                            'What would you want to call your team?'
+	                        )
+	                    )
 	                ),
 	                _react2.default.createElement(
-	                  'button',
-	                  { type: 'button', className: 'btn btn-success', onClick: this.saveAndContinue },
-	                  'Next'
+	                    'form',
+	                    { className: 'form-inline' },
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'row' },
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'col-md-6' },
+	                            _react2.default.createElement(
+	                                'div',
+	                                { className: 'form-group' },
+	                                _react2.default.createElement(
+	                                    'label',
+	                                    { className: 'labels' },
+	                                    'Your Team Name'
+	                                ),
+	                                _react2.default.createElement('input', { type: 'text', className: 'form-control', ref: 'team', placeholder: 'Team Name', defaultValue: this.props.fieldValues.teamname, required: true })
+	                            )
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'row' },
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'col-md-6' },
+	                            _react2.default.createElement(
+	                                'div',
+	                                { className: 'form-group' },
+	                                _react2.default.createElement(
+	                                    'button',
+	                                    { className: 'btn btn-success', onClick: this.props.previousStep },
+	                                    'Back'
+	                                ),
+	                                _react2.default.createElement(
+	                                    'button',
+	                                    { type: 'button', className: 'btn btn-success', onClick: this.saveAndContinue },
+	                                    'Next'
+	                                )
+	                            )
+	                        )
+	                    )
 	                )
-	              )
-	            )
-	          )
-	        )
-	      );
-	    }
-	  }, {
-	    key: 'saveAndContinue',
-	    value: function saveAndContinue(e) {
-	      e.preventDefault();
-	      var data = {
-	        teamname: _reactDom2.default.findDOMNode(this.refs.team).value };
+	            );
+	        }
+	    }, {
+	        key: 'saveAndContinue',
+	        value: function saveAndContinue(e) {
+	            e.preventDefault();
+	            var data = {
+	                teamname: _reactDom2.default.findDOMNode(this.refs.team).value };
+	            this.props.saveValues(data);
+	            this.props.nextStep();
+	        }
+	    }]);
 
-	      this.props.saveValues(data);
-	      this.props.nextStep();
-	    }
-	  }]);
-
-	  return TeamName;
+	    return TeamName;
 	}(_react2.default.Component);
 
 	exports.default = TeamName;
@@ -20052,7 +20049,7 @@
 	        value: function render() {
 	            return _react2.default.createElement(
 	                'div',
-	                { className: 'second' },
+	                null,
 	                _react2.default.createElement(
 	                    'div',
 	                    { className: 'row' },
@@ -20267,7 +20264,7 @@
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	Object.defineProperty(exports, "__esModule", {
-	  value: true
+	    value: true
 	});
 
 	var _react = __webpack_require__(1);
@@ -20283,92 +20280,92 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var Confirmation = function (_React$Component) {
-	  _inherits(Confirmation, _React$Component);
+	    _inherits(Confirmation, _React$Component);
 
-	  function Confirmation() {
-	    _classCallCheck(this, Confirmation);
+	    function Confirmation() {
+	        _classCallCheck(this, Confirmation);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Confirmation).apply(this, arguments));
-	  }
-
-	  _createClass(Confirmation, [{
-	    key: "render",
-	    value: function render() {
-	      return _react2.default.createElement(
-	        "div",
-	        { className: "row" },
-	        _react2.default.createElement(
-	          "div",
-	          { className: "col-md-6" },
-	          _react2.default.createElement(
-	            "h2",
-	            null,
-	            "Confirm Registration"
-	          ),
-	          _react2.default.createElement(
-	            "ul",
-	            null,
-	            _react2.default.createElement(
-	              "li",
-	              null,
-	              _react2.default.createElement(
-	                "b",
-	                null,
-	                "Email:"
-	              ),
-	              " ",
-	              this.props.fieldValues.emailss
-	            ),
-	            _react2.default.createElement(
-	              "li",
-	              null,
-	              _react2.default.createElement(
-	                "b",
-	                null,
-	                "Team Name:"
-	              ),
-	              " ",
-	              this.props.fieldValues.teamname
-	            ),
-	            _react2.default.createElement(
-	              "li",
-	              null,
-	              _react2.default.createElement(
-	                "b",
-	                null,
-	                "Domain Name:"
-	              ),
-	              " ",
-	              this.props.fieldValues.domain
-	            ),
-	            _react2.default.createElement(
-	              "li",
-	              null,
-	              _react2.default.createElement(
-	                "b",
-	                null,
-	                "User Name"
-	              ),
-	              " ",
-	              this.props.fieldValues.username
-	            )
-	          ),
-	          _react2.default.createElement(
-	            "button",
-	            { className: "btn btn-success", onClick: this.props.previousStep },
-	            "Back"
-	          ),
-	          _react2.default.createElement(
-	            "button",
-	            { className: "btn btn-success", onClick: this.props.nextStep },
-	            "Submit Registration"
-	          )
-	        )
-	      );
+	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Confirmation).apply(this, arguments));
 	    }
-	  }]);
 
-	  return Confirmation;
+	    _createClass(Confirmation, [{
+	        key: "render",
+	        value: function render() {
+	            return _react2.default.createElement(
+	                "div",
+	                { className: "row" },
+	                _react2.default.createElement(
+	                    "div",
+	                    { className: "col-md-6" },
+	                    _react2.default.createElement(
+	                        "h2",
+	                        null,
+	                        "Confirm Registration"
+	                    ),
+	                    _react2.default.createElement(
+	                        "ul",
+	                        null,
+	                        _react2.default.createElement(
+	                            "li",
+	                            null,
+	                            _react2.default.createElement(
+	                                "b",
+	                                null,
+	                                "Email:"
+	                            ),
+	                            " ",
+	                            this.props.fieldValues.emailss
+	                        ),
+	                        _react2.default.createElement(
+	                            "li",
+	                            null,
+	                            _react2.default.createElement(
+	                                "b",
+	                                null,
+	                                "Team Name:"
+	                            ),
+	                            " ",
+	                            this.props.fieldValues.teamname
+	                        ),
+	                        _react2.default.createElement(
+	                            "li",
+	                            null,
+	                            _react2.default.createElement(
+	                                "b",
+	                                null,
+	                                "Domain Name:"
+	                            ),
+	                            " ",
+	                            this.props.fieldValues.domain
+	                        ),
+	                        _react2.default.createElement(
+	                            "li",
+	                            null,
+	                            _react2.default.createElement(
+	                                "b",
+	                                null,
+	                                "User Name"
+	                            ),
+	                            " ",
+	                            this.props.fieldValues.username
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        "button",
+	                        { className: "btn btn-success", onClick: this.props.previousStep },
+	                        "Back"
+	                    ),
+	                    _react2.default.createElement(
+	                        "button",
+	                        { className: "btn btn-success", onClick: this.props.nextStep },
+	                        "Submit Registration"
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+
+	    return Confirmation;
 	}(_react2.default.Component);
 
 	exports.default = Confirmation;
