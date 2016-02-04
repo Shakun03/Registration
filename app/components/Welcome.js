@@ -1,8 +1,8 @@
-var React = require('react');
-var ReactDOM = require('react-dom');
+import React from 'react';
+import ReactDOM from'react-dom';
 
-var Welcome = React.createClass({
-        render: function(){
+class Welcome extends React.Component{
+        render(){
             return(
                 <div>
                 <h1>Welcome!!!</h1>
@@ -10,6 +10,6 @@ var Welcome = React.createClass({
                 </div>
                 );
         }
-    });
+    }
         
-    module.exports = Welcome
+export default Welcome;

@@ -4,8 +4,7 @@
   "description": "",
   "main": "newjavascript.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint src"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "BSD-2-Clause",
@@ -16,9 +15,7 @@
     "react": "~0.14.3",
     "react-dom": "^0.14.7",
     "babel-eslint": "~4.1.8",
-    "eslint": "~1.10.3",
-    "babel-traverse": "~6.4.5",
-    "babel-template": "~6.3.13"
+    "eslint": "~1.10.3"
   },
   "devDependencies": {
     "webpack": "~1.12.12",

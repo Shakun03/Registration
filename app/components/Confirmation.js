@@ -1,7 +1,7 @@
-var React = require('react');
+import React from 'react';
 
-var Confirmation = React.createClass({
-         render: function() {
+class Confirmation extends React.Component{
+         render(){
     return (
         <div className="row">
                     <div className="col-md-6">
@@ -22,5 +22,5 @@ var Confirmation = React.createClass({
       </div>
     )
   }
-    });
-module.exports = Confirmation
+    }
+export default Confirmation;

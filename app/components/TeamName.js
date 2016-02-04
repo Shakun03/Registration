@@ -1,9 +1,13 @@
-var React = require('react')
-var ReactDOM = require('react-dom');
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-var TeamName = React.createClass({
+class TeamName extends React.Component{
+  constructor(){
+    super();
+    this.saveAndContinue = this.saveAndContinue.bind(this);
+  }
 
-  render: function() {
+  render() {
        
      return (
         <div className="hello">
@@ -18,7 +22,7 @@ var TeamName = React.createClass({
                        <div className="col-md-6">
                         <div className="form-group">
                         <label className="labels">Your Team Name</label>
-                        <input type="text"  className="form-control" ref="team" className="input-type" placeholder="Team Name" defaultValue={this.props.fieldValues.teamname} required/>
+                        <input type="text"  className="form-control" ref="team" placeholder="Team Name" defaultValue={this.props.fieldValues.teamname} required/>
                         </div>
                         </div>
                         </div>
@@ -36,8 +40,8 @@ var TeamName = React.createClass({
                     </div>
                     
     )
-  },
-  saveAndContinue: function(e){
+  }
+  saveAndContinue(e){
     e.preventDefault();
     var data = {
         teamname: ReactDOM.findDOMNode(this.refs.team).value }
@@ -46,5 +50,5 @@ var TeamName = React.createClass({
     this.props.nextStep()
   }
  
-    });
-module.exports = TeamName
+    }
+export default TeamName;

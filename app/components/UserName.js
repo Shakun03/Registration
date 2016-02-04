@@ -1,10 +1,14 @@
-var React = require('react');
-var ReactDOM = require('react-dom');
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-var UserName = React.createClass({
-  render: function() {
+class UserName extends React.Component{
+    constructor(){
+        super();
+        this.saveAndContinue = this.saveAndContinue.bind(this);
+    }
+  render() {
     return (
-      <div class="second">
+      <div className="second">
                 <div className="row">
                     <div className="col-md-6">
                     <h1>Pick a Username</h1><br />
@@ -16,7 +20,7 @@ var UserName = React.createClass({
                         <div className="col-md-6">
                         <div className="form-group">
                         <label className="labels">UserName</label>
-                        <input type="text"  className="form-control" ref="username" className="input-type" defaultValue={this.props.fieldValues.username} required/>
+                        <input type="text"  className="form-control" ref="username" defaultValue={this.props.fieldValues.username} required/>
                         </div>
                         </div>
                         </div>
@@ -33,8 +37,8 @@ var UserName = React.createClass({
                     
                     
     )
-  },
-  saveAndContinue: function(e){
+  }
+  saveAndContinue(e){
             e.preventDefault()
             var data = {
                 username: ReactDOM.findDOMNode(this.refs.username).value
@@ -42,5 +46,5 @@ var UserName = React.createClass({
             this.props.saveValues(data)
             this.props.nextStep()
         }
-}); 
-module.exports = UserName
+}
+export default UserName;

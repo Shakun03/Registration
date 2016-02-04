@@ -1,12 +1,12 @@
- var React = require('react')
- var EmailAddress  = require('./EmailAddress');
- var TeamName = require('./TeamName');
- var DomainName = require('./DomainName');
- var UserName = require('./UserName');
- var Confirmation = require('./Confirmation');
- var Welcome = require('./Welcome');
- var ReactDOM = require('react-dom');
-var assign = require('object-assign');
+ import React from 'react';
+ import EmailAddress  from './EmailAddress';
+ import TeamName from './TeamName';
+ import DomainName from './DomainName';
+ import UserName from './UserName';
+ import Confirmation from './Confirmation';
+ import Welcome from './Welcome';
+ import ReactDOM from 'react-dom';
+ import assign from 'object-assign';
 
 
  var fieldValues = {
@@ -17,11 +17,17 @@ var assign = require('object-assign');
         username: null
     }
 
-    var Registration = React.createClass({
-        getInitialState: function(){
-            return{ step : 1}
-        },
-        render: function(){
+class Registration extends React.Component{
+        constructor(){
+            super();
+            this.state = {
+                step: 1
+            };
+            this.saveValues = this.saveValues.bind(this);
+            this.nextStep = this.nextStep.bind(this);
+            this.previousStep = this.previousStep.bind(this);
+        }
+        render(){
             switch(this.state.step){
                 case 1:
                     return <EmailAddress fieldValues={fieldValues} nextStep={this.nextStep} saveValues={this.saveValues}/>
@@ -37,19 +43,19 @@ var assign = require('object-assign');
                     return <Welcome previousStep={this.previousStep}/>
             }
 
-    },
-    saveValues: function (fields) {
+    }
+    saveValues(fields) {
         return function(){
             fieldValues = assign({}, fieldValues, fields)
         }()
-    },
-    nextStep: function(){
+    }
+    nextStep(){
      
         this.setState({
             step: this.state.step + 1
         })
-    },
-    previousStep: function(e){
+    }
+    previousStep(e){
         e.preventDefault()
 
 
@@ -59,8 +65,8 @@ var assign = require('object-assign');
     }
 
 
-    });
+    }
  ReactDOM.render(<Registration />,
             document.getElementById('app'))
 
- module.exports = Registration
+export default Registration;

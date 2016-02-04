@@ -1,8 +1,12 @@
-var React = require('react');
-var ReactDOM = require('react-dom');
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-var DomainName = React.createClass({
-  render: function() {
+class DomainName extends React.Component{
+    constructor(){
+        super();
+        this.saveAndContinue = this.saveAndContinue.bind(this);
+    }
+  render() {
     return (
       <div className="second">
                 <div className="row">
@@ -10,13 +14,12 @@ var DomainName = React.createClass({
                     <h1>What web address do you want for your team?</h1>
                     </div>
                     </div>
-
                        <form className="form-inline">
                        <div className="row">
                         <div className="col-md-6">
                         <div className="form-group">
                         <label className="labels">Your Team Domain</label>
-                        <input type="text"  className="form-control" ref="domain" className="input-type" defaultValue={this.props.fieldValues.domain} required/>
+                        <input type="text"  className="form-control" ref="domain" defaultValue={this.props.fieldValues.domain} required/>
                         </div>
                         </div>
                         </div>
@@ -34,8 +37,8 @@ var DomainName = React.createClass({
                     
                     
     )
-  },
-  saveAndContinue: function(e){
+  }
+  saveAndContinue(e){
             e.preventDefault()
             var data = {
                 domain: ReactDOM.findDOMNode(this.refs.domain).value
@@ -43,5 +46,5 @@ var DomainName = React.createClass({
             this.props.saveValues(data)
             this.props.nextStep()
         }
-}); 
-module.exports = DomainName
+} 
+export default DomainName;
