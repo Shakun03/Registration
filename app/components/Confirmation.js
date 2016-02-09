@@ -1,22 +1,21 @@
 import React from 'react';
 
-class Confirmation extends React.Component{
-    render(){
-        return (
-            <div className="row">
+const Confirmation = ({fieldValues, previousStep,nextStep}) => {
+    return (
+        <div className="row">
                 <div className="col-md-6">
                     <h2>Confirm Registration</h2>
                     <ul>
-                        <li><b>Email:</b> {this.props.fieldValues.emailss}</li>
-                        <li><b>Team Name:</b> {this.props.fieldValues.teamname}</li>
-                        <li><b>Domain Name:</b> {this.props.fieldValues.domain}</li>
-                        <li><b>User Name</b> {this.props.fieldValues.username}</li>
+                        <li><b>Email:</b> {fieldValues.emailss}</li>
+                        <li><b>Team Name:</b> {fieldValues.teamname}</li>
+                        <li><b>Domain Name:</b> {fieldValues.domain}</li>
+                        <li><b>User Name</b> {fieldValues.username}</li>
                     </ul>
-                    <button className="btn btn-success" onClick={this.props.previousStep}>Back</button>
-                    <button className="btn btn-success" onClick={this.props.nextStep}>Submit Registration</button>  
+                    <button className="btn btn-success" onClick={previousStep}>Back</button>
+                    <button className="btn btn-success" onClick={nextStep}>Submit Registration</button>  
                 </div>
-            </div>
-            )
-        }
+        </div>
+    )
 }
+
 export default Confirmation;

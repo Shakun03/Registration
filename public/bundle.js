@@ -112,12 +112,28 @@
 
 	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Registration).call(this));
 
+	        _this.saveValues = function (fields) {
+	            return function () {
+	                fieldValues = (0, _objectAssign2.default)({}, fieldValues, fields);
+	            }();
+	        };
+
+	        _this.nextStep = function () {
+	            _this.setState({
+	                step: _this.state.step + 1
+	            });
+	        };
+
+	        _this.previousStep = function (e) {
+	            e.preventDefault();
+	            _this.setState({
+	                step: _this.state.step - 1
+	            });
+	        };
+
 	        _this.state = {
 	            step: 1
 	        };
-	        _this.saveValues = _this.saveValues.bind(_this);
-	        _this.nextStep = _this.nextStep.bind(_this);
-	        _this.previousStep = _this.previousStep.bind(_this);
 	        return _this;
 	    }
 
@@ -138,29 +154,6 @@
 	                case 6:
 	                    return _react2.default.createElement(_Welcome2.default, { previousStep: this.previousStep });
 	            }
-	        }
-	    }, {
-	        key: 'saveValues',
-	        value: function saveValues(fields) {
-	            return function () {
-	                fieldValues = (0, _objectAssign2.default)({}, fieldValues, fields);
-	            }();
-	        }
-	    }, {
-	        key: 'nextStep',
-	        value: function nextStep() {
-
-	            this.setState({
-	                step: this.state.step + 1
-	            });
-	        }
-	    }, {
-	        key: 'previousStep',
-	        value: function previousStep(e) {
-	            e.preventDefault();
-	            this.setState({
-	                step: this.state.step - 1
-	            });
 	        }
 	    }]);
 
@@ -19795,17 +19788,34 @@
 	    _inherits(EmailAddress, _React$Component);
 
 	    function EmailAddress() {
+	        var _Object$getPrototypeO;
+
+	        var _temp, _this, _ret;
+
 	        _classCallCheck(this, EmailAddress);
 
-	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(EmailAddress).call(this));
+	        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+	            args[_key] = arguments[_key];
+	        }
 
-	        _this.saveAndContinue = _this.saveAndContinue.bind(_this);
-	        return _this;
+	        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_Object$getPrototypeO = Object.getPrototypeOf(EmailAddress)).call.apply(_Object$getPrototypeO, [this].concat(args))), _this), _this.saveAndContinue = function (e) {
+	            e.preventDefault();
+	            var data = {
+	                emailss: _reactDom2.default.findDOMNode(_this.refs.emails).value
+	            };
+	            _this.props.saveValues(data);
+	            _this.props.nextStep();
+	        }, _temp), _possibleConstructorReturn(_this, _ret);
 	    }
 
 	    _createClass(EmailAddress, [{
 	        key: 'render',
 	        value: function render() {
+	            var _props = this.props;
+	            var fieldValues = _props.fieldValues;
+	            var nextStep = _props.nextStep;
+	            var saveValues = _props.saveValues;
+
 	            return _react2.default.createElement(
 	                'div',
 	                null,
@@ -19840,7 +19850,7 @@
 	                            _react2.default.createElement(
 	                                'div',
 	                                { className: 'form-group' },
-	                                _react2.default.createElement('input', { type: 'email', className: 'form-control', ref: 'emails', placeholder: 'Email Address', defaultValue: this.props.fieldValues.emailss, required: true })
+	                                _react2.default.createElement('input', { type: 'email', className: 'form-control', ref: 'emails', placeholder: 'Email Address', defaultValue: fieldValues.emailss, required: true })
 	                            ),
 	                            _react2.default.createElement(
 	                                'div',
@@ -19855,17 +19865,6 @@
 	                    )
 	                )
 	            );
-	        }
-	    }, {
-	        key: 'saveAndContinue',
-	        value: function saveAndContinue(e) {
-	            e.preventDefault();
-	            var data = {
-
-	                emailss: _reactDom2.default.findDOMNode(this.refs.emails).value
-	            };
-	            this.props.saveValues(data);
-	            this.props.nextStep();
 	        }
 	    }]);
 
@@ -19915,17 +19914,30 @@
 	    _inherits(TeamName, _React$Component);
 
 	    function TeamName() {
+	        var _Object$getPrototypeO;
+
+	        var _temp, _this, _ret;
+
 	        _classCallCheck(this, TeamName);
 
-	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(TeamName).call(this));
+	        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+	            args[_key] = arguments[_key];
+	        }
 
-	        _this.saveAndContinue = _this.saveAndContinue.bind(_this);
-	        return _this;
+	        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_Object$getPrototypeO = Object.getPrototypeOf(TeamName)).call.apply(_Object$getPrototypeO, [this].concat(args))), _this), _this.saveAndContinue = function (e) {
+	            e.preventDefault();
+	            var data = {
+	                teamname: _reactDom2.default.findDOMNode(_this.refs.team).value };
+	            _this.props.saveValues(data);
+	            _this.props.nextStep();
+	        }, _temp), _possibleConstructorReturn(_this, _ret);
 	    }
 
 	    _createClass(TeamName, [{
 	        key: 'render',
 	        value: function render() {
+	            var fieldValues = this.props.fieldValues;
+
 	            return _react2.default.createElement(
 	                'div',
 	                null,
@@ -19959,7 +19971,7 @@
 	                                    { className: 'labels' },
 	                                    'Your Team Name'
 	                                ),
-	                                _react2.default.createElement('input', { type: 'text', className: 'form-control', ref: 'team', placeholder: 'Team Name', defaultValue: this.props.fieldValues.teamname, required: true })
+	                                _react2.default.createElement('input', { type: 'text', className: 'form-control', ref: 'team', placeholder: 'Team Name', defaultValue: fieldValues.teamname, required: true })
 	                            )
 	                        )
 	                    ),
@@ -19987,15 +19999,6 @@
 	                    )
 	                )
 	            );
-	        }
-	    }, {
-	        key: 'saveAndContinue',
-	        value: function saveAndContinue(e) {
-	            e.preventDefault();
-	            var data = {
-	                teamname: _reactDom2.default.findDOMNode(this.refs.team).value };
-	            this.props.saveValues(data);
-	            this.props.nextStep();
 	        }
 	    }]);
 
@@ -20036,17 +20039,33 @@
 	    _inherits(DomainName, _React$Component);
 
 	    function DomainName() {
+	        var _Object$getPrototypeO;
+
+	        var _temp, _this, _ret;
+
 	        _classCallCheck(this, DomainName);
 
-	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(DomainName).call(this));
+	        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+	            args[_key] = arguments[_key];
+	        }
 
-	        _this.saveAndContinue = _this.saveAndContinue.bind(_this);
-	        return _this;
+	        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_Object$getPrototypeO = Object.getPrototypeOf(DomainName)).call.apply(_Object$getPrototypeO, [this].concat(args))), _this), _this.saveAndContinue = function (e) {
+	            e.preventDefault();
+	            var data = {
+	                domain: _reactDom2.default.findDOMNode(_this.refs.domain).value
+	            };
+	            _this.props.saveValues(data);
+	            _this.props.nextStep();
+	        }, _temp), _possibleConstructorReturn(_this, _ret);
 	    }
 
 	    _createClass(DomainName, [{
 	        key: 'render',
 	        value: function render() {
+	            var _props = this.props;
+	            var fieldValues = _props.fieldValues;
+	            var previousStep = _props.previousStep;
+
 	            return _react2.default.createElement(
 	                'div',
 	                null,
@@ -20080,7 +20099,7 @@
 	                                    { className: 'labels' },
 	                                    'Your Team Domain'
 	                                ),
-	                                _react2.default.createElement('input', { type: 'text', className: 'form-control', ref: 'domain', defaultValue: this.props.fieldValues.domain, required: true })
+	                                _react2.default.createElement('input', { type: 'text', className: 'form-control', ref: 'domain', placeholder: 'Team Domain', defaultValue: fieldValues.domain, required: true })
 	                            )
 	                        )
 	                    ),
@@ -20095,7 +20114,7 @@
 	                                { className: 'form-group' },
 	                                _react2.default.createElement(
 	                                    'button',
-	                                    { className: 'btn btn-success', onClick: this.props.previousStep },
+	                                    { className: 'btn btn-success', onClick: previousStep },
 	                                    'Back'
 	                                ),
 	                                _react2.default.createElement(
@@ -20108,16 +20127,6 @@
 	                    )
 	                )
 	            );
-	        }
-	    }, {
-	        key: 'saveAndContinue',
-	        value: function saveAndContinue(e) {
-	            e.preventDefault();
-	            var data = {
-	                domain: _reactDom2.default.findDOMNode(this.refs.domain).value
-	            };
-	            this.props.saveValues(data);
-	            this.props.nextStep();
 	        }
 	    }]);
 
@@ -20158,17 +20167,33 @@
 	    _inherits(UserName, _React$Component);
 
 	    function UserName() {
+	        var _Object$getPrototypeO;
+
+	        var _temp, _this, _ret;
+
 	        _classCallCheck(this, UserName);
 
-	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(UserName).call(this));
+	        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+	            args[_key] = arguments[_key];
+	        }
 
-	        _this.saveAndContinue = _this.saveAndContinue.bind(_this);
-	        return _this;
+	        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_Object$getPrototypeO = Object.getPrototypeOf(UserName)).call.apply(_Object$getPrototypeO, [this].concat(args))), _this), _this.saveAndContinue = function (e) {
+	            e.preventDefault();
+	            var data = {
+	                username: _reactDom2.default.findDOMNode(_this.refs.username).value
+	            };
+	            _this.props.saveValues(data);
+	            _this.props.nextStep();
+	        }, _temp), _possibleConstructorReturn(_this, _ret);
 	    }
 
 	    _createClass(UserName, [{
 	        key: 'render',
 	        value: function render() {
+	            var _props = this.props;
+	            var fieldValues = _props.fieldValues;
+	            var previousStep = _props.previousStep;
+
 	            return _react2.default.createElement(
 	                'div',
 	                { className: 'second' },
@@ -20209,7 +20234,7 @@
 	                                    { className: 'labels' },
 	                                    'UserName'
 	                                ),
-	                                _react2.default.createElement('input', { type: 'text', className: 'form-control', ref: 'username', defaultValue: this.props.fieldValues.username, required: true })
+	                                _react2.default.createElement('input', { type: 'text', className: 'form-control', ref: 'username', placeholder: 'User Name', defaultValue: fieldValues.username, required: true })
 	                            )
 	                        )
 	                    ),
@@ -20224,7 +20249,7 @@
 	                                { className: 'form-group' },
 	                                _react2.default.createElement(
 	                                    'button',
-	                                    { className: 'btn btn-success', onClick: this.props.previousStep },
+	                                    { className: 'btn btn-success', onClick: previousStep },
 	                                    'Back'
 	                                ),
 	                                _react2.default.createElement(
@@ -20237,16 +20262,6 @@
 	                    )
 	                )
 	            );
-	        }
-	    }, {
-	        key: 'saveAndContinue',
-	        value: function saveAndContinue(e) {
-	            e.preventDefault();
-	            var data = {
-	                username: _reactDom2.default.findDOMNode(this.refs.username).value
-	            };
-	            this.props.saveValues(data);
-	            this.props.nextStep();
 	        }
 	    }]);
 
@@ -20261,8 +20276,6 @@
 
 	"use strict";
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
@@ -20273,100 +20286,83 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	var Confirmation = function Confirmation(_ref) {
+	    var fieldValues = _ref.fieldValues;
+	    var previousStep = _ref.previousStep;
+	    var nextStep = _ref.nextStep;
 
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var Confirmation = function (_React$Component) {
-	    _inherits(Confirmation, _React$Component);
-
-	    function Confirmation() {
-	        _classCallCheck(this, Confirmation);
-
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Confirmation).apply(this, arguments));
-	    }
-
-	    _createClass(Confirmation, [{
-	        key: "render",
-	        value: function render() {
-	            return _react2.default.createElement(
-	                "div",
-	                { className: "row" },
+	    return _react2.default.createElement(
+	        "div",
+	        { className: "row" },
+	        _react2.default.createElement(
+	            "div",
+	            { className: "col-md-6" },
+	            _react2.default.createElement(
+	                "h2",
+	                null,
+	                "Confirm Registration"
+	            ),
+	            _react2.default.createElement(
+	                "ul",
+	                null,
 	                _react2.default.createElement(
-	                    "div",
-	                    { className: "col-md-6" },
+	                    "li",
+	                    null,
 	                    _react2.default.createElement(
-	                        "h2",
+	                        "b",
 	                        null,
-	                        "Confirm Registration"
+	                        "Email:"
 	                    ),
+	                    " ",
+	                    fieldValues.emailss
+	                ),
+	                _react2.default.createElement(
+	                    "li",
+	                    null,
 	                    _react2.default.createElement(
-	                        "ul",
+	                        "b",
 	                        null,
-	                        _react2.default.createElement(
-	                            "li",
-	                            null,
-	                            _react2.default.createElement(
-	                                "b",
-	                                null,
-	                                "Email:"
-	                            ),
-	                            " ",
-	                            this.props.fieldValues.emailss
-	                        ),
-	                        _react2.default.createElement(
-	                            "li",
-	                            null,
-	                            _react2.default.createElement(
-	                                "b",
-	                                null,
-	                                "Team Name:"
-	                            ),
-	                            " ",
-	                            this.props.fieldValues.teamname
-	                        ),
-	                        _react2.default.createElement(
-	                            "li",
-	                            null,
-	                            _react2.default.createElement(
-	                                "b",
-	                                null,
-	                                "Domain Name:"
-	                            ),
-	                            " ",
-	                            this.props.fieldValues.domain
-	                        ),
-	                        _react2.default.createElement(
-	                            "li",
-	                            null,
-	                            _react2.default.createElement(
-	                                "b",
-	                                null,
-	                                "User Name"
-	                            ),
-	                            " ",
-	                            this.props.fieldValues.username
-	                        )
+	                        "Team Name:"
 	                    ),
+	                    " ",
+	                    fieldValues.teamname
+	                ),
+	                _react2.default.createElement(
+	                    "li",
+	                    null,
 	                    _react2.default.createElement(
-	                        "button",
-	                        { className: "btn btn-success", onClick: this.props.previousStep },
-	                        "Back"
+	                        "b",
+	                        null,
+	                        "Domain Name:"
 	                    ),
+	                    " ",
+	                    fieldValues.domain
+	                ),
+	                _react2.default.createElement(
+	                    "li",
+	                    null,
 	                    _react2.default.createElement(
-	                        "button",
-	                        { className: "btn btn-success", onClick: this.props.nextStep },
-	                        "Submit Registration"
-	                    )
+	                        "b",
+	                        null,
+	                        "User Name"
+	                    ),
+	                    " ",
+	                    fieldValues.username
 	                )
-	            );
-	        }
-	    }]);
-
-	    return Confirmation;
-	}(_react2.default.Component);
+	            ),
+	            _react2.default.createElement(
+	                "button",
+	                { className: "btn btn-success", onClick: previousStep },
+	                "Back"
+	            ),
+	            _react2.default.createElement(
+	                "button",
+	                { className: "btn btn-success", onClick: nextStep },
+	                "Submit Registration"
+	            )
+	        )
+	    );
+	};
 
 	exports.default = Confirmation;
 
@@ -20376,10 +20372,8 @@
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
-	    value: true
+	  value: true
 	});
 
 	var _react = __webpack_require__(1);
@@ -20392,43 +20386,22 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var Welcome = function (_React$Component) {
-	    _inherits(Welcome, _React$Component);
-
-	    function Welcome() {
-	        _classCallCheck(this, Welcome);
-
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Welcome).apply(this, arguments));
-	    }
-
-	    _createClass(Welcome, [{
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(
-	                'div',
-	                null,
-	                _react2.default.createElement(
-	                    'h1',
-	                    null,
-	                    'Welcome!!!'
-	                ),
-	                _react2.default.createElement(
-	                    'button',
-	                    { className: 'btn btn-success' },
-	                    'Take a Tour'
-	                )
-	            );
-	        }
-	    }]);
-
-	    return Welcome;
-	}(_react2.default.Component);
+	var Welcome = function Welcome() {
+	  return _react2.default.createElement(
+	    'div',
+	    null,
+	    _react2.default.createElement(
+	      'h1',
+	      null,
+	      'Welcome!!!'
+	    ),
+	    _react2.default.createElement(
+	      'button',
+	      { className: 'btn btn-success' },
+	      'Take a Tour'
+	    )
+	  );
+	};
 
 	exports.default = Welcome;
 

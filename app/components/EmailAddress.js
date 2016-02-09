@@ -1,12 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-class EmailAddress extends React.Component{
-    constructor(){
-        super();
-        this.saveAndContinue = this.saveAndContinue.bind(this);
-    }
+
+class EmailAddress extends React.Component{   
+    propTypes : {
+        fieldValues: React.propTypes.object.isRequired,
+        nextStep: React.propTypes.func.isRequired,
+        saveValues: React.propTypes.func.isRequired
+    }; 
     render() {
+        var {fieldValues, nextStep, saveValues} = this.props;
         return(
             <div>
                 <div className="row">
@@ -24,7 +27,7 @@ class EmailAddress extends React.Component{
                     <div className="col-md-4">
                         <form className="form-inline">
                             <div className="form-group">
-                                <input type="email"  className="form-control" ref="emails" placeholder="Email Address" defaultValue={this.props.fieldValues.emailss} required/>
+                                <input type="email"  className="form-control" ref="emails" placeholder="Email Address" defaultValue={fieldValues.emailss} required/>
                             </div>
                             <div className="form-group">
                                 <button type="submit" className="btn btn-success" onClick={this.saveAndContinue}>Create a New Team</button>
@@ -34,16 +37,16 @@ class EmailAddress extends React.Component{
                 </div>
             </div>
                 
-            );
+        );
     }
-    saveAndContinue(e){
-        e.preventDefault()
-        var data = {
-            
+    saveAndContinue = (e) => { 
+        e.preventDefault();
+        let data = {
             emailss: ReactDOM.findDOMNode(this.refs.emails).value
-        }
-        this.props.saveValues(data)
-        this.props.nextStep()
-    }
-    }
+        };
+        this.props.saveValues(data);
+        this.props.nextStep();
+    };
+    
+}
 export default EmailAddress;

@@ -9,13 +9,13 @@
  import assign from 'object-assign';
 
 
- var fieldValues = {
+let fieldValues = {
 
         emailss: null,
         teamname: null,
         domain: null,
         username: null
-    }
+}
 
 class Registration extends React.Component{
     constructor(){
@@ -23,9 +23,6 @@ class Registration extends React.Component{
         this.state = {
             step: 1
         };
-        this.saveValues = this.saveValues.bind(this);
-        this.nextStep = this.nextStep.bind(this);
-        this.previousStep = this.previousStep.bind(this);
     }
     render(){
         switch(this.state.step){
@@ -43,23 +40,22 @@ class Registration extends React.Component{
                 return <Welcome previousStep={this.previousStep}/>
         }
     }
-    saveValues(fields) {
+    saveValues = (fields) => {
         return function(){
             fieldValues = assign({}, fieldValues, fields)
         }()
-    }
-    nextStep(){
-     
+    };
+    nextStep = () => {
         this.setState({
             step: this.state.step + 1
         })
-    }
-    previousStep(e){
+    };
+    previousStep = (e) => {
         e.preventDefault()
         this.setState({
             step: this.state.step - 1 
         })
-    }
+    };
 }
 ReactDOM.render(<Registration />,document.getElementById('app'))
 

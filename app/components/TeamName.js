@@ -2,11 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 class TeamName extends React.Component{
-    constructor(){
-        super();
-        this.saveAndContinue = this.saveAndContinue.bind(this);
-    }
-    render() {   
+    propTypes : {
+        fieldValues: React.propTypes.object.isRequired,
+        nextStep: React.propTypes.func.isRequired,
+        previousStep: React.propTypes.func.isRequired,
+        saveValues: React.propTypes.func.isRequired
+    };
+    render() { 
+        var {fieldValues} = this.props;  
         return (
             <div>
                 <div className="row">
@@ -19,7 +22,7 @@ class TeamName extends React.Component{
                         <div className="col-md-6">
                             <div className="form-group">
                                 <label className="labels">Your Team Name</label>
-                                <input type="text"  className="form-control" ref="team" placeholder="Team Name" defaultValue={this.props.fieldValues.teamname} required/>
+                                <input type="text"  className="form-control" ref="team" placeholder="Team Name" defaultValue={fieldValues.teamname} required/>
                             </div>
                         </div>
                     </div>
@@ -33,14 +36,14 @@ class TeamName extends React.Component{
                     </div> 
                 </form>
             </div>               
-            );
-        }
-    saveAndContinue(e){
+        );
+    }
+    saveAndContinue = (e) => {
         e.preventDefault();
-        var data = {
-            teamname: ReactDOM.findDOMNode(this.refs.team).value }
-        this.props.saveValues(data)
-        this.props.nextStep()
-        }
- }
+        let data = {
+            teamname: ReactDOM.findDOMNode(this.refs.team).value };
+        this.props.saveValues(data);
+        this.props.nextStep();
+    };
+}
 export default TeamName;
