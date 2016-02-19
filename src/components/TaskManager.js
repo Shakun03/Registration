@@ -5,9 +5,9 @@ import Task from './Task'
 function fetch (taskId) {
   switch (taskId) {
     case '1':
-      return {fields: ['email'], next: 2}
+      return {fields: ['email'], text: ['Create a new team', 'Sign up with your e-mail address'], next: 2}
     case '2':
-      return {fields: ['vanityUrl', 'telephone'], next: 3}
+      return {fields: ['vanityUrl', 'telephone'], text: ['text1', 'text2'], next: 3}
     case '3':
       return {fields: ['teamName']}
   }

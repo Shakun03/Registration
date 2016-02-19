@@ -12,15 +12,33 @@ export default class Task extends React.Component {
     console.log(task.fields)
     const inputs = task.fields.map((field, idx) => (
       <div key={idx}>
-        <label>{field}</label>
-        <input type='text' name={field} />
+        <input className='form-control input-lg' type='text' name={field} placeholder={field} id='inputLg'/>
       </div>
-    ))
+      ))
+    const inputText = task.text.map((text, idx) => {
+      if (idx===0) {
+        return (
+          <div key={idx} id='heading'>
+            <h1>{text}</h1>
+          </div>
+        )
+      } else {
+        return (
+          <div key={idx}>
+            <h5>{text}</h5>
+          </div>
+        )
+      }
+    })
+
     const next = '/task/' + task.next
     return (
       <div>
+        {inputText}
         {inputs}
-        <a href={next}>Next</a>
+        <a href={next}>
+          <button type='button' className='btn btn-default btn-lg' id='buttonLg'>Next</button>
+        </a>
       </div>
     )
   }
